@@ -6,7 +6,7 @@
 
 ---
 
-![hollow knight](https://tinyurl.com/w9vhe9sx)
+![hollow knight](https://tinyurl.com/2p856jzy)
 
 [files in DRIVE - ADSO](https://tinyurl.com/fyrpsyaj)
 
