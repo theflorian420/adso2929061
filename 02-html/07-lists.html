@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>05-link.css</title>
+    <title>07 - list - </title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/custom.css">
+    <style>
+        section {
+            ol, ul {
+                padding-left: rem;
+            }
+            
+        }
+    </style>
 </head>
 <body class="html">
     <nav>
@@ -15,11 +22,31 @@
     </nav>
 <main>
 <header>
-<h1>05-link.css</h1>
-<h2>This tag allows you to insert code in css</h2>
+<h1>07- lists</h1>
+<h2>This tags allows you to create ordered and unordered lists</h2>
 </header>
 <section>
-    <div class="adso"> ADSO <br> 2929061 A</div>
+    <h3>Ordered list:</h3>
+    <ol>
+        <li>Java</li>
+        <li>Phyton
+            <ol>
+                <li>Flask</li>
+                <li>Django</li>
+            </ol>
+        </li>
+        <li>Flask</li>
+        <li>Ruby</li>
+    </ol>
+    <h3>Unordere list</h3>
+    <ul></ul>
+    <li>Kaiju number 8</li>
+    <li>Kimetsu no yaiba</li>
+    <li>Magic and muscle</li>
+    <li>fruit baket</li>
+    </ul>
+   
+
 </section>
 </main>
 </body>

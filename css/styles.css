@@ -253,7 +253,7 @@ body.emmet{
 img{
     border-radius: 50%;
     object-fit: cover;
-    border: 10px solid green;
+    border: 10px solid rgb(177, 177, 177);
     width: 300px;
 }
 
@@ -267,7 +267,7 @@ body.html {
                 font-weight: 700;
             }
             h2 {
-                color: black;
+                color: rgb(0, 0, 0);
                 border-bottom: none;
                 max-width: 80%;
                 font-weight: 500;
@@ -275,7 +275,7 @@ body.html {
         }
         menu {
             a:is(:link, :visited){
-                color: black;
+                color: rgb(219, 219, 219);
                 span {
                     background-color: b;
                 }
