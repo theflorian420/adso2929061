@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39-challenge-responsive</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        header div h4 {
+            justify-content: center;
+        }
+
+        header img {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+
+        }
+
+        * {
+            transition: all 0.2s ease-in;
+        }
+
+        body {
+            background: transparent url(/IMAGENES/paisaje.jpg) no-repeat center /cover fixed;
+            background-color: #d1bdbd;
+            font-family: sans-serif;
+        }
+
+        main {
+            background-color: #ccc;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        main div {
+            background: #0009;
+            height: 200px;
+            width: 200px;
+        }
+
+        main div img {
+            object-fit: cover;
+            width: 200px;
+            height: 200px;
+        }
+
+        article {
+            background-color: #ccc;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            width: 850px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        @media (max-width: 860px) {
+            main {
+                width: 500px;
+            }
+
+            article {
+                width: 500px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                width: 400px;
+            }
+
+            article {
+                flex-direction: column;
+                width: 400px;
+            }
+        }
+
+        header h4.clip2 {
+            background: url(/IMAGENES/bgfire.jpg) no-repeat center;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        div.character1 {
+            background: url(/IMAGENES/cj.jpg) no-repeat center /cover;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        h4 {
+            background-color: #0009;
+            color: #fff;
+            font-size: 2rem;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            margin: 0;
+            width: 168px;
+            transition: all 0.4s ease-in
+        }
+
+        div:hover h4 {
+            transform: translateY(-20px);
+        }
+
+
+
+        /* BreakPoint: 1024px */
+        @media (max-width: 1024px) {
+            body {
+                background-color: #f00;
+            }
+        }
+
+        /* BreakPoint: 768px */
+        @media (max-width: 768px) {
+            body {
+                background-color: #0f0;
+            }
+        }
+
+        /* BreakPoint: 480px */
+        @media (max-width: 480px) {
+            body {
+                background-color: #00f;
+            }
+        }
+        div.character2 {
+            background: url(/IMAGENES/smoke.jpg) no-repeat center /cover;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        h4 {
+            background-color: #0009;
+            color: #fff;
+            font-size: 2rem;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            margin: 0;
+            width: 168px;
+            transition: all 0.4s ease-in
+        }
+
+        div:hover h4 {
+            transform: translateY(-20px);
+        }
+
+
+
+        /* BreakPoint: 1024px */
+        @media (max-width: 1024px) {
+            body {
+                background-color: #f00;
+            }
+        }
+
+        /* BreakPoint: 768px */
+        @media (max-width: 768px) {
+            body {
+                background-color: #0f0;
+            }
+        }
+
+        /* BreakPoint: 480px */
+        @media (max-width: 480px) {
+            body {
+                background-color: #00f;
+            }
+        }
+        div.character3 {
+            background: url(/IMAGENES/cesar.jpg) no-repeat center /cover;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        h4 {
+            background-color: #0009;
+            color: #fff;
+            font-size: 2rem;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            margin: 0;
+            width: 168px;
+            transition: all 0.4s ease-in
+        }
+
+        div:hover h4 {
+            transform: translateY(-20px);
+        }
+
+
+
+        /* BreakPoint: 1024px */
+        @media (max-width: 1024px) {
+            body {
+                background-color: #f00;
+            }
+        }
+
+        /* BreakPoint: 768px */
+        @media (max-width: 768px) {
+            body {
+                background-color: #0f0;
+            }
+        }
+
+        /* BreakPoint: 480px */
+        @media (max-width: 480px) {
+            body {
+                background-color: #00f;
+            }
+        }
+        div.character4 {
+            background: url(/IMAGENES/rider.jpg) no-repeat center /cover;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        h4 {
+            background-color: #0009;
+            color: #fff;
+            font-size: 2rem;
+            padding: 1rem;
+            position: absolute;
+            bottom: 0;
+            margin: 0;
+            width: 168px;
+            transition: all 0.4s ease-in
+        }
+
+        div:hover h4 {
+            transform: translateY(-20px);
+        }
+
+
+
+        /* BreakPoint: 1024px */
+        @media (max-width: 1024px) {
+            body {
+                background-color: #f00;
+            }
+        }
+
+        /* BreakPoint: 768px */
+        @media (max-width: 768px) {
+            body {
+                background-color: #0f0;
+            }
+        }
+
+        /* BreakPoint: 480px */
+        @media (max-width: 480px) {
+            body {
+                background-color: #00f;
+            }
+        }
+    </style>
+</head>
+
+<body class="html">
+    <header>
+        <img src="/IMAGENES/logo 12.webp" alt="">
+    </header>
+    <section>
+        <main>
+            <div class="character1">
+                <h4>Cj</h4>
+            </div>
+            <div class="character2">
+                <h4>Smoke</h4>
+            </div>
+            <div class="character3">
+                <h4>Cesar</h4>
+            </div>
+            <div class="character4">
+                <h4>Rider</h4>
+            </div>
+        </main>
+        <article>
+            <div class="img">
+                <img src="/IMAGENES/gta.jpg" alt="">
+            </div>
+            <div class="txt">
+                <h2>Grand Theft Auto: San Andreas</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus
+                    delectus officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est
+                    tempora minima aperiam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus
+                    delectus officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est
+                    tempora minima aperiam.</p>
+            </div>
+        </article>
+
+        <article>
+            <div class="img">
+                <img src="/IMAGENES/mapa.webp" alt="">
+            </div>
+            <div class="txt">
+                <h2>Mapa GTA</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus
+                    delectus officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est
+                    tempora minima aperiam.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut fugit sint, corporis ad accusamus
+                    delectus officiis vel placeat ratione esse, error minus rerum. Culpa asperiores consequuntur est
+                    tempora minima aperiam.</p>
+            </div>
+        </article>
+
+    </section>
+
+
+</body>
+
+</html>
