@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45-challenge-grid</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100dvh
+        }
+
+        div {
+            display: grid;
+            place-items: center;
+            /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+            grid-template-areas:
+                "img01 img02 img03"
+                "img04 img02 img05"
+                "img06 img06 img07";
+            margin: 0.5rem auto;
+            width: calc(120px * 3);
+            gap: 8px;
+        }
+
+        div img {
+            border-radius: 4px;
+            outline: solid #000;
+            object-fit: cover;
+            height: 140px;
+            width: 140px;
+        }
+
+        div.one img.img01 {
+            grid-area: img01;
+        }
+
+        div.one img.img02 {
+            grid-area: img02;
+            height: calc(140px * 2 + 8px);
+        }
+
+        div.one img.img03 {
+            grid-area: img03;
+        }
+
+        div.one img.img04 {
+            grid-area: img04;
+        }
+
+        div.one img.img05 {
+            grid-area: img05;
+        }
+
+        div.one img.img06 {
+            grid-area: img06;
+            width: calc(140px * 2 + 8px);
+        }
+
+        div.one img.img07 {
+            grid-area: img07;
+        }
+
+
+
+
+
+        
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100dvh
+        }
+
+        div.two {
+            display: grid;
+            place-items: center;
+            /*
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+  */
+            grid-template-areas:
+                "img02 img02 img01 img03"
+                "img02 img02 img06 img06"
+                "img04 img05 img06 img06";
+            margin: 0.5rem auto;
+            width: calc(120px * 3);
+            gap: 8px;
+        }
+
+        div img {
+            border-radius: 4px;
+            outline: solid #000;
+            object-fit: cover;
+            height: 140px;
+            width: 140px;
+        }
+
+        div.two img.img01 {
+            grid-area: img01;
+        }
+
+        div.two img.img02 {
+            grid-area: img02;
+            height: calc(140px * 2 + 8px);
+            width: calc(140px * 2 + 8px);
+        }
+
+        div.two img.img03 {
+            grid-area: img03;
+        }
+
+        div.two img.img04 {
+            grid-area: img04;
+        }
+
+        div.two img.img05 {
+            grid-area: img05;
+        }
+
+        div.two img.img06 {
+            grid-area: img06;
+            width: calc(140px * 2 + 8px);
+            height: calc(140px * 2 + 8px);
+        }
+       
+    </style>
+</head>
+
+<body class="css">
+    <nav>
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>45-challenge-grid</h1>
+            <h2>Description</h2>
+        </header>
+        <section>
+            <div class="one">
+                <img src="/IMAGENES/vikingos.jpg"
+                    class="img01">
+                <img src="/IMAGENES/inicio.webp"
+                    class="img02">
+                <img src="/IMAGENES/cesar.jpg"
+                    class="img03">
+                <img src="/IMAGENES/barrio.webp"
+                    class="img04">
+                <img src="/IMAGENES/messi.png"
+                    class="img05">
+                <img src="/IMAGENES/paisaje.jpg"
+                    class="img06">
+                <img src="/IMAGENES/ragnark.webp"
+                    class="img07">
+
+            </div>
+            <br>
+            <div class="two">
+                <img src="/IMAGENES/messi01.jpg" class="img01">
+                <img src="/IMAGENES/messi02.jpg" class="img02">
+                <img src="/IMAGENES/messi04.webp" class="img03">
+                <img src="/IMAGENES/messi03.jpg" class="img04">
+                <img src="/IMAGENES/messi05.webp" class="img05">
+                <img src="/IMAGENES//messi06.jpg" class="img06">
+
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
