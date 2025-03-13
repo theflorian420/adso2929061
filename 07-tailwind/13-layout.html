@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13- Layout (Challenge)</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-[#1e1e1e]">
+    <main class="min-h-[100dvh]
+                 flex 
+                 justify-center 
+                 items-center">
+        <!-- Screen 01 - Welcome -->
+        <section class="welcome 
+                        w-[386px] 
+                        h-[750px]
+                        my-4
+                        overflow-hidden
+                        bg-[url(images/imagevaca.png)]
+                        rounded-t-[33px]
+                        bg-[white]
+                        relative
+                        bg-top
+                        bg-no-repeat">
+            <div class="absolute
+                        rounded-t-[30px]
+                        bottom-0
+                        w-full
+                        h-[427px]
+                        bg-[#D68C2B]">
+
+                <figure class="logo
+                                h-[108px]
+                                w-[108px]
+                                mx-auto
+                                mt-[-50px]
+                                bg-[url(images/logo.svg)]">
+                </figure>
+                <h2 class="text-center
+                               text-[32px]
+                               font-[500]
+                               mt-[38px]
+                               text-[#444]">Welcome to</h2>
+                <h2 class="text-center
+                               text-[32px]
+                               mt-[-10px]
+                               font-[600]
+                               text-[#000]">Granja</h2>
+                <p class="text-[#000]
+                              font-[400]
+                              text-[16px]
+                              mx-auto
+                              mt-[40px]
+                              w-[272px]
+                              text-center">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                </p>
+                <div class="actions
+                             w-[320px]
+                             flex
+                             mt-[42px]
+                             mx-[auto]">
+                    <a href="" class="w-[160px]
+                                              h-[55px]
+                                              flex
+                                              justify-center
+                                              items-center
+                                              text-white
+                                              rounded-s-[80px]
+                                              bg-black">Sign In</a>
+                    <a href="" class="w-[160px]
+                                                              h-[55px]
+                                                              flex
+                                                              justify-center
+                                                              items-center
+                                                              text-black
+                                                              rounded-e-[80px]
+                                                              bg-white">Sign Up</a>
+                </div>
+            </div>
+        </section>
+        <!-- Screen 02 - Signin -->
+        <section class="signin"></section>
+        <!-- Screen 03 - Signup -->
+        <section class="signup"></section>
+    </main>
+    <script src="js/tailwind.js"></script>
+</body>
+
+</html>
