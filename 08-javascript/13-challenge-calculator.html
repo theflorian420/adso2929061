@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>13 - Challenge</title>
-    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         div.calculator {
-            background-color: #7b7c7c;
+            background-color: #ffffff;
             border-radius: 15px;
             height: 640px;
             margin: 0 auto;
@@ -76,7 +76,7 @@
                     opacity: 0.8;
                     height: 80px;
                     border-radius: 15px;
-                    background-color: #989393;
+                    background-color: #fffdfd;
                     transition: all 0.2s ease-in;
 
                     &:hover {
@@ -358,6 +358,18 @@
         const btnDel=document.querySelector('.btn-del')
         const btnEqual=document.querySelector('.btn-equal')
         const btnMode=document.querySelector('.btn-mode')
+
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)')
+        darkMode.addListener(darkModeChange)
+
+        function darkModeChange(dm) {
+            if (dm.matches) {
+                calculator.classList.add('dark')
+            } else {
+                calculator.classList.remove('dark')
+            }
+        }
+        darkModeChange(darkMode)
 
         //Events
         btnMode.addEventListener('click',(e)=>{
