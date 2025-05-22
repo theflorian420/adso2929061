@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>16 - Challenge</title>
-    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         div.weather {
@@ -165,7 +165,7 @@
                     width: 200px;
                     height: 200px;
                     position: relative;
-                    top: 100px;
+                    top: 75px;
                     left: 50%;
                     transform: translateX(-50%);
 
@@ -177,19 +177,19 @@
 
                     h4.tempText {
                         position: absolute;
-                        top: 15px;
+                        top: 40px;
                         left: 50%;
                         transform: translateX(-50%);
                         font-size: 3rem;
                         color: #FFFFFF;
-                        text-shadow: 0 0 4px #fff7f7;
+                        text-shadow: 0 0 4px #362525;
 
                     }
                 }
 
                 h4.condicion {
                     position: absolute;
-                    top: 270px;
+                    top: 280px;
                     left: 50%;
                     transform: translateX(-50%);
                     font-size: 0.8rem;
@@ -257,7 +257,7 @@
                     <h4 class="ciudad"></h4>
                     <h4 class="fecha"></h4>
                     <div class="temp">
-                        
+                        <img src="" alt="" class="icoCon">
                         <h4 class="tempText"></h4>
                     </div>
                     <h4 class="condicion"></h4>
@@ -308,6 +308,7 @@
                 "tempc": data.current.temp_c,
                 "isDay": data.current.is_day,
                 "conditionText": data.current.condition.text,
+                "conditionIcon": data.current.condition.icon,
                 
                 "humidity": data.current.humidity,
                 "cloud": data.current.cloud
@@ -335,7 +336,7 @@
             condicion.textContent = `Condition: ${info.conditionText}`
             humedad.textContent = `Humidity: ${info.humidity}`
             nube.textContent = `Cloud: ${info.cloud}`
-           // icoCon.src = info.conditionIcon
+            icoCon.src = info.conditionIcon
             tempText.textContent = `${info.tempc}°`
         }
         showWeather('Manizales')
