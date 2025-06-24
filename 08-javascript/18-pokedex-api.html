@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18-pokedex-api</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        ul.pokemons {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.4rem;
+            
+
+            li {
+                border: 2px solid rgba(214, 209, 209, 0.6);
+                border-radius: 0.4rem;
+
+                h4,
+                h5 {
+                    margin: 0;
+                    text-align: center;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="js">
+    <nav>
+        <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1>18-pokedex-api </h1>
+            <h2>Obtén y muestra datos de la API de Pokedex.</h2>
+        </header>
+        <section>
+            <select class="pk-generation"></select>
+            <ul class="pokemons"></ul>
+        </section>
+    </main>
+    <script>
+         //Objects
+        const generations = {
+            range: [
+                { from: 1, to: 151 },
+                { from: 152, to: 251 },
+                { from: 252, to: 386 },
+                { from: 387, to: 493 },
+                { from: 494, to: 649 },
+                { from: 650, to: 721 },
+                { from: 722, to: 809 },
+                { from: 810, to: 890 },
+                { from: 891, to: 1025 }
+            ]
+        }
+
+        const types = {
+            normal: "#a8a77a",
+            fire: "#ee8130",
+            water: "#6390f0",
+            electric: "#f7d02c",
+            grass: "#7ac74c",
+            ice: "#96d9d6",
+            fighting: "#c22e28",
+            poison: "#a33ea1",
+            ground: "#e2bf65",
+            flying: "#a98ff3",
+            psychic: "#f95587",
+            bug: "#a6b91a",
+            roch: "#b6a136",
+            ghost: "#735797",
+            dragon: "#6f35fc",
+            dark: "#705746",
+            steel: "#b7b7ce",
+            fairy: "#d685ad",
+            shadow: "#5a5a5a",
+            unknown: "#68a090"
+
+        }
+
+        //Select
+        const pkGeneration = document.querySelector('.pk-generation')
+        generations['range'].forEach((element, index) => {
+            pkGeneration.innerHTML += `<option value="${index}">Generation ${++index}</option>`
+        })
+
+        //Events
+
+        pkGeneration.addEventListener('change', function(e) {
+            loadPokemons(generations.range[this.value].from,
+                         generations.range[this.value].to)
+        })
+        //elements
+        const pokemons = document.querySelector('.pokemons')
+        const loadPokemons = async (start, to) => {
+            pokemons.innerHTML = ''
+            for (let pk = start; pk <= to; pk++) {
+                const url = `https://pokeapi.co/api/v2/pokemon/${pk}`
+                const response = await fetch(url)
+                const data = await response.json()
+                //console.log(data)
+                const typeColor = data.types[0].type.name
+                pokemons.innerHTML += `<li style= "border-color: ${types[typeColor]};
+                                                background: linear-gradient(black, ${types[typeColor]})                              "> 
+                                        <h4>${data.id}</h4>
+                                        <h5>${data.name}</h5>
+                                        <img src="${data.sprites.front_default}"
+                                        </li>`
+            }
+        }
+        loadPokemons(1, 151)      
+    </script>
+</body>
