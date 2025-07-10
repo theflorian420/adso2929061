@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
-        section div.contenedor{
+        section div.contenedor {
             position: relative;
             background: url(image19/casino.svg) no-repeat center;
             width: 360px;
@@ -16,54 +16,108 @@
             justify-content: center;
             align-items: center;
 
-            img.titulo{
+            img.titulo {
                 position: absolute;
                 left: 20%;
                 top: 10px;
             }
 
-            img.num{
+            img.num {
                 position: absolute;
                 left: 5%;
                 top: 300px;
             }
-            img.num2{
+
+            img.num2 {
                 position: absolute;
                 left: 23%;
                 top: 225px;
             }
-            img.num3{
+
+            img.num3 {
                 position: absolute;
                 left: 59%;
                 top: 225px;
             }
-             img.num4{
+
+            img.num4 {
                 position: absolute;
                 left: 75%;
                 top: 300px;
             }
-             img.especial{
+
+            img.especial {
                 position: absolute;
                 left: 42%;
                 top: 165px;
             }
-                button {
-                    position: absolute;
-                    left: 43%;
-                    width: 150px;
-                    height: 30px;
-                    font-size: 20px;
-                    border-radius: 40px;
-                }
+
+            button {
+                position: absolute;
+                left: 32%;
+                width: 150px;
+                height: 30px;
+                font-size: 20px;
+                border-radius: 40px;
+                top: 85%;
+                background-color: #081feecb;
+                color: #ffffff;
+            }
+
+            div.premio {
+                position: absolute;
+                color: rgb(255, 255, 255);
+                top: 70px;
+                background-color: #2711ecb6;
+                left: 22%;
+                border-radius: 30px;
+            }
+
+            h1.n1 {
+                position: absolute;
+                left: 10%;
+                top: 330px;
+                color: #fcfcfc;
+            }
+
+            h1.n2 {
+                position: absolute;
+                left: 28%;
+                top: 250px;
+                color: #fcfcfc;
+            }
+
+              h1.n3 {
+                position: absolute;
+                left: 47%;
+                top: 170px;
+                color: #fcfcfc;
+            }
+            h1.n4 {
+                position: absolute;
+                left: 65%;
+                top: 250px;
+                color: #fcfcfc;
+            }
+            h1.n5 {
+                position: absolute;
+                left: 82%;
+                top: 330px;
+                color: #fcfcfc;
+            }
         }
     </style>
-    
+
 </head>
 
 <body class="js">
     <nav>
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
         </a>
     </nav>
     <main>
@@ -74,15 +128,70 @@
         <section>
             <div class="contenedor">
                 <img src="image19/Titulo.png" alt="" class="titulo">
+                <div class="premio">
+                    <h1>240.000.000</h1>
+                </div>
                 <img src="image19/num.png" alt="" class="num">
                 <img src="image19/num.png" alt="" class="num2">
                 <img src="image19/num.png" alt="" class="num3">
                 <img src="image19/num.png" alt="" class="num4">
                 <img src="image19/especial.png" alt="" class="especial">
-                <button>PLAY</button>
+                <h1 class="n1">5</h1>
+                <h1 class="n2">4</h1>
+                <h1 class="n3">3</h1>
+                <h1 class="n4">2</h1>
+                <h1 class="n5">1</h1>
+                <button class="bola">PLAY</button>
             </div>
+
         </section>
     </main>
+    <script>
+        // Elements
+        const bola = document.querySelector('.bola');
+        const n1 = document.querySelector('.n1');
+        const n2 = document.querySelector('.n2');
+        const n3 = document.querySelector('.n3');
+        const n4 = document.querySelector('.n4');
+        const n5 = document.querySelector('.n5');
+
+        // Funccion para generar el numero aleatorio
+        function getRandomNumber(min, max, element) {
+            let rand = Math.floor(Math.random() * (max - min)) + min;
+            let count = 0
+
+            const interval = setInterval(() => {
+                if (count == rand) {
+                    clearInterval(interval);
+                }
+                element.textContent = ++count;
+            }, 200);
+        }
+
+        // Event listener for button click
+        bola.addEventListener('click', () => {
+            bola.disabled = true; // Disable button to prevent multiple clicks
+            bola.textContent = 'Cargando...';
+            getRandomNumber(0, 9, n1);
+            getRandomNumber(0, 9, n2);
+            getRandomNumber(0, 9, n3);
+            getRandomNumber(0, 9, n4);
+            getRandomNumber(0, 9, n5);
+            
+
+            setTimeout(() => {
+                // Check for jackpot
+                if (n1.textContent === n2.textContent && n2.textContent === n3.textContent && n3.textContent === n4.textContent) {
+                   
+                }
+              
+                bola.textContent = 'PLAY'; // Reset button text
+                bola.disabled = false; // Re-enable button
+            }, 3000);
+
+
+        });
+    </script>
 </body>
 
 </html>
