@@ -147,51 +147,61 @@
         </section>
     </main>
     <script>
-        // Elements
-        const bola = document.querySelector('.bola');
-        const n1 = document.querySelector('.n1');
-        const n2 = document.querySelector('.n2');
-        const n3 = document.querySelector('.n3');
-        const n4 = document.querySelector('.n4');
-        const n5 = document.querySelector('.n5');
+    // Elements
+    const bola = document.querySelector('.bola');
+    const n1 = document.querySelector('.n1');
+    const n2 = document.querySelector('.n2');
+    const n3 = document.querySelector('.n3');
+    const n4 = document.querySelector('.n4');
+    const n5 = document.querySelector('.n5');
 
-        // Funccion para generar el numero aleatorio
-        function getRandomNumber(min, max, element) {
-            let rand = Math.floor(Math.random() * (max - min)) + min;
-            let count = 0
+    // Function to generate a unique random number
+    function getUniqueRandomNumber(min, max, usedNumbers) {
+        let rand;
+        do {
+            rand = Math.floor(Math.random() * (max - min)) + min;
+        } while (usedNumbers.includes(rand)); // Check if the number is already used
+        usedNumbers.push(rand); // Add the number to the used list
+        return rand;
+    }
 
+    // Function to generate random numbers and display them
+    function generateRandomNumbers() {
+        const usedNumbers = [];
+        const numbers = [n1, n2, n3, n4, n5];
+
+        numbers.forEach((element) => {
+            const randNumber = getUniqueRandomNumber(0, 9, usedNumbers);
+            let count = 0;
             const interval = setInterval(() => {
-                if (count == rand) {
+                if (count === randNumber) {
                     clearInterval(interval);
                 }
                 element.textContent = ++count;
             }, 200);
-        }
-
-        // Event listener for button click
-        bola.addEventListener('click', () => {
-            bola.disabled = true; // Disable button to prevent multiple clicks
-            bola.textContent = 'Cargando...';
-            getRandomNumber(0, 9, n1);
-            getRandomNumber(0, 9, n2);
-            getRandomNumber(0, 9, n3);
-            getRandomNumber(0, 9, n4);
-            getRandomNumber(0, 9, n5);
-            
-
-            setTimeout(() => {
-                // Check for jackpot
-                if (n1.textContent === n2.textContent && n2.textContent === n3.textContent && n3.textContent === n4.textContent) {
-                   
-                }
-              
-                bola.textContent = 'PLAY'; // Reset button text
-                bola.disabled = false; // Re-enable button
-            }, 3000);
-
-
         });
-    </script>
+    }
+
+    // Event listener for button click
+    bola.addEventListener('click', () => {
+        bola.disabled = true; // Disable button to prevent multiple clicks
+        bola.textContent = 'Cargando...';
+        generateRandomNumbers(); // Generate the random numbers
+        
+
+        setTimeout(() => {
+            // Check for jackpot (if all numbers are equal)
+            if (n1.textContent === n2.textContent && n2.textContent === n3.textContent && n3.textContent === n4.textContent) {
+
+                // Puedes agregar aquí cualquier acción para el Jackpot, como un mensaje o un cambio de estilo
+            }
+
+            bola.textContent = 'PLAY'; // Reset button text
+            bola.disabled = false; // Re-enable button
+        }, 3000);
+    });
+</script>
+
 </body>
 
 </html>
