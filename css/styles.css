@@ -643,7 +643,7 @@ body.jQuery {
             }
 
             h2 {
-                color: gray;
+                color: rgb(255, 255, 255);
                 border-bottom: none;
                 max-width: 80%;
                 font-weight: 400;
@@ -654,7 +654,7 @@ body.jQuery {
             width: 80%;
 
             p {
-                color: #97afe4;
+                color: #0616fd;
                 font-size: 1rem;
                 align-items: center;
             }
@@ -666,12 +666,12 @@ body.jQuery {
                 font-weight: 500;
 
                 span {
-                    background-color: #323330;
+                    background-color: #0b0fff7c;
                 }
             }
 
             h3 {
-                color: blue;
+                color: rgb(224, 224, 224);
             }
         }
     }
