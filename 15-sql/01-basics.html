@@ -1,0 +1,64 @@
+-- Show Version MySQL
+
+mysql --version
+
+-- Acceder a MySQL
+
+mysql -u root -p
+
+-- Show All Databases
+
+show databases;
+
+-- Create Database
+
+create database databasename;
+
+-- Use Database
+
+use databasename;
+
+-- Conect Database
+
+connect databasename;
+
+-- Create Table
+
+create table gyms(
+    -> id int auto_increment,
+    -> name varchar(32) not null,
+    -> create_at timestamp,
+    -> primary key(id));
+
+--  Description of the table
+
+describe gyms;
+
+-- Create Tables
+
+ create table trainers(
+    -> id int auto_increment,
+    -> name varchar(32) not null unique,
+    -> level int not null,
+    -> gym_id int not null,
+    -> created_at timestamp,
+    -> primary key(id),
+    -> foreign key(gym_id) references gyms(id));
+
+-- Exit MySQL
+
+exit;
+
+-- Duno Data (Backup Database)
+
+ mysqldump -u root pokeadso > C:\Users\SENA\Desktop\adso2929061\15-sql\backup.sql
+
+ --Drop Database
+
+ drop database databasename;
+
+ -- Recovery Database
+
+ create database pokeadso;
+ exit;
+ mysql -u root pokeadso <a backup.sql
