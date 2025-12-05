@@ -1,0 +1,1 @@
+// Generic inventory for any type
