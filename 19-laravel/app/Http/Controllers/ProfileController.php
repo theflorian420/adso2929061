@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+
 class ProfileController extends Controller
 {
     /**
@@ -19,18 +20,23 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+
     /**
      * Update the user's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()->fill($request->validated());
+
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
         $request->user()->save();
+
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+
     /**
      * Delete the user's account.
      */
@@ -39,11 +45,16 @@ class ProfileController extends Controller
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
+
         $user = $request->user();
+
         Auth::logout();
+
         $user->delete();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return Redirect::to('/');
     }
 }
