@@ -58,15 +58,18 @@
             </form>
         </div>
         {{-- Search --}}
-        <label class="input text-white bg-[#0009] w-58 md:w-112 outline outline-white mb-10">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </g>
-            </svg>
-            <input type="search" placeholder="Search..." name="qsearch" id="qsearch" />
-        </label>
+        <form method="GET" action="{{ url('users') }}" class="w-58 md:w-112 mb-10">
+            <label class="input text-white bg-[#0009] outline outline-white w-full">
+                <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input type="search" placeholder="Search by name, email, document..." name="qsearch" id="qsearch"
+                    value="{{ $q ?? '' }}" autocomplete="off" />
+            </label>
+        </form>
     </div>
 
     <div class="overflow-x-auto rounded-box text-white border border-base-content/5 bg-black/70">
@@ -120,14 +123,19 @@
                                     </path>
                                 </svg>
                             </a>
-                            <a href="javascript:;" class="btn btn-outline btnxs btn-error">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentColor"
-                                    viewBox="0 0 256 256">
-                                    <path
-                                        d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
-                                    </path>
-                                </svg>
-                            </a>
+                            <form action="{{ url('users/' . $user->id) }}" method="POST" class="form-delete">
+                                @csrf
+                                @method('DELETE')
+                                <input type="hidden" name="user_name" value="{{ $user->fullname }}">
+                                <button type="button" class="btn btn-outline btnxs btn-error btn-delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="currentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
@@ -142,4 +150,36 @@
             </tfoot>
         </table>
     </div>
+@endsection
+
+@section('js')
+<script>
+    $(document).ready(function () {
+        // Búsqueda con debounce
+        let searchTimer
+        $('#qsearch').on('input', function () {
+            clearTimeout(searchTimer)
+            searchTimer = setTimeout(() => $(this).closest('form').submit(), 500)
+        })
+
+        $('.btn-delete').click(function () {
+            const form = $(this).closest('form')
+            const name = form.find('[name="user_name"]').val()
+            Swal.fire({
+                title: '¿Eliminar usuario?',
+                text: `"${name}" será eliminado permanentemente.`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#e11d48',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: 'Sí, eliminar',
+                cancelButtonText: 'Cancelar',
+                background: '#1a1a2e',
+                color: '#fff',
+            }).then((result) => {
+                if (result.isConfirmed) form.submit()
+            })
+        })
+    })
+</script>
 @endsection

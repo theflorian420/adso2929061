@@ -1,13 +1,25 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Exports\UsersExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\Pdf;
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('id', 'desc')->paginate(12);
-        return view('users.index')->with('users', $users);
+        $q = $request->input('qsearch');
+        $users = User::orderBy('id', 'desc')
+            ->when($q, fn($query) => $query->where(function($query) use ($q) {
+                $query->where('fullname',  'like', "%$q%")
+                      ->orWhere('email',    'like', "%$q%")
+                      ->orWhere('document', 'like', "%$q%")
+                      ->orWhere('phone',    'like', "%$q%");
+            }))
+            ->paginate(12)
+            ->withQueryString();
+        return view('users.index', compact('users', 'q'));
     }
 
     public function create()
@@ -106,5 +118,18 @@ class UserController extends Controller
 
         return redirect('users')
             ->with('message', 'El usuario ' . $user->fullname . ' fue eliminado exitosamente.');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new UsersExport, 'users_' . now()->format('Ymd_His') . '.xlsx');
+    }
+
+    public function exportPdf()
+    {
+        $users = User::orderBy('id', 'desc')->get();
+        $pdf = Pdf::loadView('users.pdf', compact('users'))
+            ->setPaper('a4', 'landscape');
+        return $pdf->download('users_' . now()->format('Ymd_His') . '.pdf');
     }
 }
